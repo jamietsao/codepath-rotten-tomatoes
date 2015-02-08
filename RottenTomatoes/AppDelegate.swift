@@ -13,9 +13,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        // load storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil);
+
+        // get instance of MovieTableViewController from storyboard and configure for Theater
+        let theaterNC = storyboard.instantiateViewControllerWithIdentifier(Constants.IDs.MovieTableNavigationController) as UINavigationController;
+        let theaterVC = theaterNC.topViewController as MovieTableViewController
+        theaterVC.setViewType(viewType: Constants.MovieViewType.Theater)
+        
+        theaterNC.tabBarItem = UITabBarItem(title: "Theaters", image: nil, tag: 1)
+        
+        // get instance of MovieTableViewController from storyboard and configure for DVD
+        let dvdNC = storyboard.instantiateViewControllerWithIdentifier(Constants.IDs.MovieTableNavigationController) as UINavigationController;
+        let dvdVC = dvdNC.topViewController as MovieTableViewController
+        dvdVC.setViewType(viewType: Constants.MovieViewType.DVD)
+        
+        dvdNC.tabBarItem = UITabBarItem(title: "DVD", image: nil, tag: 2)
+
+        // set up tab bar controller
+        let tabBarController = UITabBarController()
+        tabBarController.viewControllers = [ theaterNC, dvdNC ]
+        window?.rootViewController = tabBarController
+        
         return true
     }
 
@@ -40,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 

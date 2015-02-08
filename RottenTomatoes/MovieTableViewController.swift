@@ -8,23 +8,26 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MovieTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    // constants
-    let MovieCellIdentifier = "com.jamietsao.RottenTomatoes.MovieCell"
+    // type of movie view (e.g. "In Theaters" vs "New Releases" (DVD))
+    var viewType: String?
 
+    // array of movies to display
     var movies: [Movie]?
 
+    // refresh control
     var refreshControl: UIRefreshControl!
-    
+
+    // table view
     @IBOutlet weak var tableView: UITableView!
+    
+    // network error label
     @IBOutlet weak var networkErrorLabel: UILabel!
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        // load movies
-        loadMovies(refreshing: false)
+    // configures view type
+    func setViewType(viewType type: String) {
+        self.viewType = type;
     }
     
     override func viewDidLoad() {
@@ -39,7 +42,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
     }
-    
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // load movies
+        loadMovies(refreshing: false)
+    }
+
     func onRefresh() {
         // load movies
         loadMovies(refreshing: true)
@@ -55,7 +65,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // dequeue cell for this row
-        let cell = tableView.dequeueReusableCellWithIdentifier(MovieCellIdentifier, forIndexPath: indexPath) as MovieTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Constants.IDs.MovieCell, forIndexPath: indexPath) as MovieTableViewCell
 
         // get corresponding movie for this row
         let movie = self.movies![indexPath.row]
@@ -93,7 +103,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let movie = self.movies![indexPath.row]
         
-        let detailsController = self.storyboard?.instantiateViewControllerWithIdentifier("jamie") as MovieDetailsViewController
+        let detailsController = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.IDs.MovieDetailsViewController) as MovieDetailsViewController
         detailsController.movie = movie;
         
         self.navigationController?.pushViewController(detailsController, animated: true)
@@ -103,28 +113,53 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // show progress HUD
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        // make API call
-        RottenTomatoesAPI.getDVDsUpcoming(
-            // handle success
-            successCallback: { (movies) -> Void in
-                self.networkErrorLabel.hidden = true
-                self.movies = movies
-                self.tableView.reloadData()
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                if refresh {
-                    self.refreshControl.endRefreshing()
+        if self.viewType == Constants.MovieViewType.Theater {
+            // make API call
+            RottenTomatoesAPI.getMoviesInTheaters(
+                // handle success
+                successCallback: { (movies) -> Void in
+                    self.networkErrorLabel.hidden = true
+                    self.movies = movies
+                    self.tableView.reloadData()
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    if refresh {
+                        self.refreshControl.endRefreshing()
+                    }
+                },
+                // handle errors
+                errorCallback: { () -> Void in
+                    self.networkErrorLabel.hidden = false
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    if refresh {
+                        self.refreshControl.endRefreshing()
+                    }
                 }
-            },
-            // handle errors
-            errorCallback: { () -> Void in
-                self.networkErrorLabel.hidden = false
-                MBProgressHUD.hideHUDForView(self.view, animated: true)
-                if refresh {
-                    self.refreshControl.endRefreshing()
+            )
+            
+        } else if self.viewType == Constants.MovieViewType.DVD {
+            // make API call
+            RottenTomatoesAPI.getDVDsUpcoming(
+                // handle success
+                successCallback: { (movies) -> Void in
+                    self.networkErrorLabel.hidden = true
+                    self.movies = movies
+                    self.tableView.reloadData()
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    if refresh {
+                        self.refreshControl.endRefreshing()
+                    }
+                },
+                // handle errors
+                errorCallback: { () -> Void in
+                    self.networkErrorLabel.hidden = false
+                    MBProgressHUD.hideHUDForView(self.view, animated: true)
+                    if refresh {
+                        self.refreshControl.endRefreshing()
+                    }
                 }
-            }
-        )
+            )
+        }
     }
-    
+
 }
 
