@@ -21,4 +21,11 @@ struct Constants {
         static let DVD = "DVD"
     }
     
+    struct ImageAssets {
+        static let FreshTomatoe = "Fresh Tomatoe"
+        static let RottenTomatoe = "Rotten Tomatoe"
+        static let FreshPopcorn = "Fresh Popcorn"
+        static let SpiltPopocorn = "Spilt Popcorn"
+    }
+    
 }

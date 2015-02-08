@@ -123,7 +123,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="88%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cA8-qI-bWA">
-                                <rect key="frame" x="150" y="157" width="34" height="17"/>
+                                <rect key="frame" x="150" y="157" width="51" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NONE" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jxG-Ze-jmx" userLabel="NONE">
+                                <rect key="frame" x="121" y="155" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -141,7 +148,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aS2-oM-AFO">
-                                <rect key="frame" x="242" y="157" width="34" height="17"/>
+                                <rect key="frame" x="242" y="157" width="52" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NONE" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rf8-Mv-LZm" userLabel="NONE">
+                                <rect key="frame" x="213" y="155" width="63" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,6 +224,7 @@
                         <outlet property="abridgedCast" destination="JUR-kF-Yab" id="Cdd-ti-zi2"/>
                         <outlet property="criticScore" destination="cA8-qI-bWA" id="izT-kh-NgB"/>
                         <outlet property="criticScoreImage" destination="UtM-CG-Mxd" id="6JX-6j-5lr"/>
+                        <outlet property="criticScoreNoneLabel" destination="jxG-Ze-jmx" id="y0c-e5-xIV"/>
                         <outlet property="movieImage" destination="a1I-2F-w65" id="Eq6-7W-VjJ"/>
                         <outlet property="movieTitle" destination="Ap5-8a-7xe" id="48T-rT-FfH"/>
                         <outlet property="rated" destination="gcA-Iy-mKt" id="X9J-kp-Z7e"/>
@@ -217,6 +232,7 @@
                         <outlet property="synopsis" destination="cif-Sn-q7e" id="gtU-ck-PG9"/>
                         <outlet property="userScore" destination="aS2-oM-AFO" id="6YR-rC-FXh"/>
                         <outlet property="userScoreImage" destination="ZRY-Hf-GIh" id="xcn-C1-0qj"/>
+                        <outlet property="userScoreNoneLabel" destination="rf8-Mv-LZm" id="TGB-Db-3G6"/>
                         <outlet property="year" destination="sfd-MD-FeU" id="WzB-S3-RhM"/>
                     </connections>
                 </viewController>

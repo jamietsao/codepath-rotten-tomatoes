@@ -87,9 +87,9 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         } else {
             var img: UIImage!
             if criticsRating >= 60 {
-                img = UIImage(named: "Fresh Tomatoe")
+                img = UIImage(named: Constants.ImageAssets.FreshTomatoe)
             } else {
-                img = UIImage(named: "Rotten Tomatoe")
+                img = UIImage(named: Constants.ImageAssets.RottenTomatoe)
             }
             cell.criticsRatingImage.image = img
             cell.criticsRating!.text = "\(criticsRating)%"

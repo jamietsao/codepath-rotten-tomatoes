@@ -18,8 +18,10 @@ class MovieDetailsViewController: UIViewController {
 
     @IBOutlet weak var criticScoreImage: UIImageView!
     @IBOutlet weak var criticScore: UILabel!
+    @IBOutlet weak var criticScoreNoneLabel: UILabel!
     @IBOutlet weak var userScoreImage: UIImageView!
     @IBOutlet weak var userScore: UILabel!
+    @IBOutlet weak var userScoreNoneLabel: UILabel!
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var rated: UILabel!
     @IBOutlet weak var runningTime: UILabel!
@@ -43,17 +45,19 @@ class MovieDetailsViewController: UIViewController {
             // this can happen if movie hasn't been released yet
             criticScoreImage.hidden = true
             criticScore.hidden = true
+            criticScoreNoneLabel.hidden = false
         } else {
             var img: UIImage!
             if criticRating >= 60 {
-                img = UIImage(named: "Fresh Tomatoe")
+                img = UIImage(named: Constants.ImageAssets.FreshTomatoe)
             } else {
-                img = UIImage(named: "Rotten Tomatoe")
+                img = UIImage(named: Constants.ImageAssets.RottenTomatoe)
             }
             criticScoreImage.image = img
             criticScore!.text = "\(criticRating)%"
             criticScoreImage.hidden = false
             criticScore.hidden = false
+            criticScoreNoneLabel.hidden = true
         }
 
         // user score
@@ -62,17 +66,19 @@ class MovieDetailsViewController: UIViewController {
             // this can happen if movie hasn't been released yet
             userScoreImage.hidden = true
             userScore.hidden = true
+            userScoreNoneLabel.hidden = false
         } else {
             var img: UIImage!
             if userRating >= 60 {
-                img = UIImage(named: "Fresh Popcorn")
+                img = UIImage(named: Constants.ImageAssets.FreshPopcorn)
             } else {
-                img = UIImage(named: "Spilt Popcorn")
+                img = UIImage(named: Constants.ImageAssets.SpiltPopocorn)
             }
             userScoreImage.image = img
             userScore!.text = "\(userRating)%"
             userScoreImage.hidden = false
             userScore.hidden = false
+            userScoreNoneLabel.hidden = true
         }
 
         // year, rated, running time
