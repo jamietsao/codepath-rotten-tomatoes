@@ -22,6 +22,8 @@ struct Constants {
     }
     
     struct ImageAssets {
+        static let Theater = "Theater"
+        static let DVD = "DVD"
         static let FreshTomatoe = "Fresh Tomatoe"
         static let RottenTomatoe = "Rotten Tomatoe"
         static let FreshPopcorn = "Fresh Popcorn"

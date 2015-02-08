@@ -23,14 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let theaterVC = theaterNC.topViewController as MovieTableViewController
         theaterVC.setViewType(viewType: Constants.MovieViewType.Theater)
         
-        theaterNC.tabBarItem = UITabBarItem(title: "Theaters", image: nil, tag: 1)
+        // set title and icon
+        theaterNC.tabBarItem = UITabBarItem(title: "Theaters", image: UIImage(named: Constants.ImageAssets.Theater), tag: 1)
         
         // get instance of MovieTableViewController from storyboard and configure for DVD
         let dvdNC = storyboard.instantiateViewControllerWithIdentifier(Constants.IDs.MovieTableNavigationController) as UINavigationController;
         let dvdVC = dvdNC.topViewController as MovieTableViewController
         dvdVC.setViewType(viewType: Constants.MovieViewType.DVD)
         
-        dvdNC.tabBarItem = UITabBarItem(title: "DVD", image: nil, tag: 2)
+        // set title and icon
+        dvdNC.tabBarItem = UITabBarItem(title: "DVD", image: UIImage(named: Constants.ImageAssets.DVD), tag: 2)
 
         // set up tab bar controller
         let tabBarController = UITabBarController()
