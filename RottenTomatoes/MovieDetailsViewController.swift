@@ -32,7 +32,7 @@ class MovieDetailsViewController: UIViewController {
         movieTitle!.text = movie!.title
 
         // abridged cast
-        abridgedCast!.text = movie!.getAbridgedCastForDisplay()
+        abridgedCast!.text = movie!.getAbridgedCastForFullDisplay()
 
         // poster image (loaded asynchronously)
         movieImage.setImageWithURL(NSURL(string: movie!.getPosterUrlOriginalSize()))

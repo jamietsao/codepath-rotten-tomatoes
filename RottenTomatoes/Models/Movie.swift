@@ -60,11 +60,24 @@ class Movie {
         return self.posterUrlThumb.stringByReplacingOccurrencesOfString("tmb", withString: "ori")
     }
 
-    func getAbridgedCastForDisplay() -> String {
+    func getAbridgedCastForShortDisplay() -> String {
+        switch self.abridgedCast.count {
+        case 0:
+            return ""
+        case 1:
+            return self.abridgedCast[0]
+        default:
+            return self.abridgedCast[0] + ", " + self.abridgedCast[1]
+        }
+    }
+
+    func getAbridgedCastForFullDisplay() -> String {
         var display = ""
         for actor in self.abridgedCast {
             display += actor + ", "
         }
         return display.substringToIndex(display.endIndex.predecessor().predecessor())
     }
+    
+    
 }

@@ -76,8 +76,8 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         // set movie title
         cell.movieTitle?.text = movie.title
 
-        // TODO: show 1st two actors
-        cell.abridgedCast!.text = movie.getAbridgedCastForDisplay()
+        // set cast
+        cell.abridgedCast!.text = movie.getAbridgedCastForShortDisplay()
 
         let criticsRating = movie.criticsScore
         if criticsRating < 0 {
