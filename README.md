@@ -1,8 +1,8 @@
 ## [CodePath Spring '15] Week 1 Assignment: Rotten Tomatoes App
 
-Inspired by Flixster, this is a movies app displaying movies currently in the theaters and newly released DVDs using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
+Inspired by Flixster, this is an app that displays movies currently in the theaters and newly released DVDs using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
 
-Time spent: `20 hours`
+Time spent: ~ 20 hours
 
 ### Features
 
@@ -24,7 +24,8 @@ Time spent: `20 hours`
 
 #### Other notables
 
-- Design of app was inspired by the Flixter app who owns Rotten Tomato (I happen to know the founders of Flixster)
+- App is currently designed for iPhone 5/5s
+- Design of app was inspired by the Flixster app who owns Rotten Tomato (I happen to know the founders of Flixster)
 - Running time is displayed in human friendly way (e.g. 2 hr. 14 min.)
 - If no critic score (which I guess can happen with new movies), "NONE" is displayed in place of fresh/rotten tomato icon and score
 - Beyond getting a functioning app, I spent a good amount of time on code organization, clarity, and patterns:
@@ -32,8 +33,15 @@ Time spent: `20 hours`
   * API code was abstracted into `RottenTomatoesAPI` using callbacks for code reuse
   * All constants were defined in Constants.swift (unclear if this is a good pattern as I'm new to the language)
   
-### Walkthrough
-![Video Walkthrough](http://i.imgur.com/9d4fXIm.gif)
+### Walkthroughs
+
+This is walkthrough of the basic features:
+![Video Walkthrough](Features Walkthrough.gif)
+
+This shows the Network Error message when wifi is turned off.  Error message is removed when wifi is turned back on and the API calls succeed:
+![Video Walkthrough](Network Error.gif)
+
+
 
 Credits
 ---------
