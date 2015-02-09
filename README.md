@@ -36,14 +36,18 @@ Time spent: ~ 20 hours
 ### Walkthroughs
 
 This is walkthrough of the basic features:
+
 ![Video Walkthrough](Features Walkthrough.gif)
 
 This shows the Network Error message when wifi is turned off.  Error message is removed when wifi is turned back on and the API calls succeed:
+
 ![Video Walkthrough](Network Error.gif)
 
 
 
 Credits
 ---------
+* [Flixster](http://www.flixster.com/)
 * [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON)
+* [The Noun Project](https://thenounproject.com)
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
