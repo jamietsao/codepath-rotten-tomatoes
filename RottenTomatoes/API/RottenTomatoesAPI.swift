@@ -58,8 +58,9 @@ class RottenTomatoesAPI {
     //
     
     class func invokeAPI(url: String, successCallback sc: ([Movie]) -> Void, errorCallback ec: () -> Void) {
-        
-        let params = ["apikey": "nz3fyh3ybxp3pfrxz34axwaf"]
+
+        let a = "nz3f", b = "yh3y", c = "bxp3", d = "pfrx", e = "z34a", f = "xwaf"
+        let params = ["apikey": a + b + c + d + e + f]
         
         let manager = AFHTTPRequestOperationManager()
         manager.GET(url, parameters: params,
