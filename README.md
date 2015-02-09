@@ -2,7 +2,7 @@
 
 Inspired by Flixster, this is an app that displays movies currently in the theaters and newly released DVDs using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
 
-Time spent: ~ 20 hours
+Time spent: ~20 hours
 
 ### Features
 
@@ -35,13 +35,14 @@ Time spent: ~ 20 hours
   
 ### Walkthroughs
 
-This is walkthrough of the basic features:
+This is a walkthrough of the basic features:
 
-![Video Walkthrough](Features Walkthrough.gif)
+![Video Walkthrough](FeaturesWalkthrough.gif)
+
 
 This shows the Network Error message when wifi is turned off.  Error message is removed when wifi is turned back on and the API calls succeed:
 
-![Video Walkthrough](Network Error.gif)
+![Video Walkthrough](NetworkError.gif)
 
 
 
