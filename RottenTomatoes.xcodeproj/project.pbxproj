@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		63C11276E22539C37EC59B1E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A3E5C38C1D9DF14F4B364FC3 /* libPods.a */; };
 		7D7C59C11A8737510083C41B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7C59C01A8737510083C41B /* Constants.swift */; };
+		7D7C59C61A886A810083C41B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D7C59C51A886A810083C41B /* LaunchScreen.xib */; };
 		7D832C041A81E74F00578DE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D832C031A81E74F00578DE2 /* AppDelegate.swift */; };
 		7D832C061A81E74F00578DE2 /* MovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D832C051A81E74F00578DE2 /* MovieTableViewController.swift */; };
 		7D832C091A81E74F00578DE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D832C071A81E74F00578DE2 /* Main.storyboard */; };
 		7D832C0B1A81E74F00578DE2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D832C0A1A81E74F00578DE2 /* Images.xcassets */; };
-		7D832C0E1A81E74F00578DE2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D832C0C1A81E74F00578DE2 /* LaunchScreen.xib */; };
 		7D832C1A1A81E74F00578DE2 /* RottenTomatoesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D832C191A81E74F00578DE2 /* RottenTomatoesTests.swift */; };
 		7D832C281A82EBC000578DE2 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D832C271A82EBC000578DE2 /* MovieTableViewCell.swift */; };
 		7D832C2A1A82FE8800578DE2 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D832C291A82FE8800578DE2 /* MovieDetailsViewController.swift */; };
@@ -34,13 +34,13 @@
 /* Begin PBXFileReference section */
 		1B420F5A0A794CC01CAD2F1E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7D7C59C01A8737510083C41B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Constants.swift; path = Util/Constants.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		7D7C59C51A886A810083C41B /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		7D832BFE1A81E74F00578DE2 /* RottenTomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RottenTomatoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D832C021A81E74F00578DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D832C031A81E74F00578DE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D832C051A81E74F00578DE2 /* MovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewController.swift; sourceTree = "<group>"; };
 		7D832C081A81E74F00578DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D832C0A1A81E74F00578DE2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7D832C0D1A81E74F00578DE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7D832C131A81E74F00578DE2 /* RottenTomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RottenTomatoesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D832C181A81E74F00578DE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D832C191A81E74F00578DE2 /* RottenTomatoesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RottenTomatoesTests.swift; sourceTree = "<group>"; };
@@ -111,16 +111,16 @@
 		7D832C001A81E74F00578DE2 /* RottenTomatoes */ = {
 			isa = PBXGroup;
 			children = (
+				7D7C59C51A886A810083C41B /* LaunchScreen.xib */,
+				7D832C031A81E74F00578DE2 /* AppDelegate.swift */,
+				7D832C071A81E74F00578DE2 /* Main.storyboard */,
 				7D7C59BF1A8737330083C41B /* Util */,
 				7D832C721A869C5000578DE2 /* API */,
 				7D832C6E1A869C1A00578DE2 /* Models */,
-				7D832C071A81E74F00578DE2 /* Main.storyboard */,
 				7D832C271A82EBC000578DE2 /* MovieTableViewCell.swift */,
 				7D832C051A81E74F00578DE2 /* MovieTableViewController.swift */,
 				7D832C291A82FE8800578DE2 /* MovieDetailsViewController.swift */,
 				7D832C0A1A81E74F00578DE2 /* Images.xcassets */,
-				7D832C0C1A81E74F00578DE2 /* LaunchScreen.xib */,
-				7D832C031A81E74F00578DE2 /* AppDelegate.swift */,
 				7D832C011A81E74F00578DE2 /* Supporting Files */,
 				7D832C631A8491EF00578DE2 /* RottenTomatoes-Bridging-Header.h */,
 			);
@@ -260,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D832C091A81E74F00578DE2 /* Main.storyboard in Resources */,
-				7D832C0E1A81E74F00578DE2 /* LaunchScreen.xib in Resources */,
+				7D7C59C61A886A810083C41B /* LaunchScreen.xib in Resources */,
 				7D832C0B1A81E74F00578DE2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,14 +347,6 @@
 				7D832C081A81E74F00578DE2 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7D832C0C1A81E74F00578DE2 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D832C0D1A81E74F00578DE2 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

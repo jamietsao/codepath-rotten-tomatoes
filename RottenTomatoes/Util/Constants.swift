@@ -29,5 +29,12 @@ struct Constants {
         static let FreshPopcorn = "Fresh Popcorn"
         static let SpiltPopocorn = "Spilt Popcorn"
     }
+
+    struct Labels {
+        static let TabBarTheater = "Theaters"
+        static let TabBarDVD = "DVD"
+        static let NavBarTheater = "In Theaters"
+        static let NavBarDVD = "New Releases"
+    }
     
 }

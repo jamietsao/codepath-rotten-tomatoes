@@ -47,13 +47,13 @@ class Movie {
     func getPosterUrlThumbSize() -> String {
         return self.posterUrlThumb;
     }
-    
-    func getPosterUrlDetailSize() -> String {
-        return self.posterUrlThumb.stringByReplacingOccurrencesOfString("tmb", withString: "det")
-    }
 
     func getPosterUrlProfileSize() -> String {
         return self.posterUrlThumb.stringByReplacingOccurrencesOfString("tmb", withString: "pro")
+    }
+
+    func getPosterUrlDetailSize() -> String {
+        return self.posterUrlThumb.stringByReplacingOccurrencesOfString("tmb", withString: "det")
     }
 
     func getPosterUrlOriginalSize() -> String {

@@ -32,7 +32,7 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // set this controller as dataSource and delegate of Table View
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,11 +41,12 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
         tableView.insertSubview(refreshControl, atIndex: 0)
+        
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         // load movies
         loadMovies(refreshing: false)
     }
@@ -101,62 +102,53 @@ class MovieTableViewController: UIViewController, UITableViewDataSource, UITable
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // get selected movie
         let movie = self.movies![indexPath.row]
-        
+
+        // instantiate details controller, set movie, then push
         let detailsController = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.IDs.MovieDetailsViewController) as MovieDetailsViewController
         detailsController.movie = movie;
-        
         self.navigationController?.pushViewController(detailsController, animated: true)
     }
     
     func loadMovies(refreshing refresh: Bool) {
-        // show progress HUD
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
+        // success handler
+        func onSuccess(movies: [Movie]) -> Void {
+            self.networkErrorLabel.hidden = true
+            self.movies = movies
+            self.tableView.reloadData()
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            if refresh {
+                self.refreshControl.endRefreshing()
+            }
+        }
+
+        // error handler
+        func onError() -> Void {
+            self.networkErrorLabel.hidden = false
+            MBProgressHUD.hideHUDForView(self.view, animated: true)
+            if refresh {
+                self.refreshControl.endRefreshing()
+            }
+        }
+        
+        // show progress HUD before invoking API call
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+        // invoke appropriate API based on viewTyp
         if self.viewType == Constants.MovieViewType.Theater {
             // make API call
             RottenTomatoesAPI.getMoviesInTheaters(
-                // handle success
-                successCallback: { (movies) -> Void in
-                    self.networkErrorLabel.hidden = true
-                    self.movies = movies
-                    self.tableView.reloadData()
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    if refresh {
-                        self.refreshControl.endRefreshing()
-                    }
-                },
-                // handle errors
-                errorCallback: { () -> Void in
-                    self.networkErrorLabel.hidden = false
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    if refresh {
-                        self.refreshControl.endRefreshing()
-                    }
-                }
+                successCallback: onSuccess,
+                errorCallback: onError
             )
             
         } else if self.viewType == Constants.MovieViewType.DVD {
             // make API call
-            RottenTomatoesAPI.getDVDsUpcoming(
-                // handle success
-                successCallback: { (movies) -> Void in
-                    self.networkErrorLabel.hidden = true
-                    self.movies = movies
-                    self.tableView.reloadData()
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    if refresh {
-                        self.refreshControl.endRefreshing()
-                    }
-                },
-                // handle errors
-                errorCallback: { () -> Void in
-                    self.networkErrorLabel.hidden = false
-                    MBProgressHUD.hideHUDForView(self.view, animated: true)
-                    if refresh {
-                        self.refreshControl.endRefreshing()
-                    }
-                }
+            RottenTomatoesAPI.getDVDsNewReleases(
+                successCallback: onSuccess,
+                errorCallback: onError
             )
         }
     }

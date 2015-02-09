@@ -22,17 +22,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let theaterNC = storyboard.instantiateViewControllerWithIdentifier(Constants.IDs.MovieTableNavigationController) as UINavigationController;
         let theaterVC = theaterNC.topViewController as MovieTableViewController
         theaterVC.setViewType(viewType: Constants.MovieViewType.Theater)
+        theaterVC.navigationItem.title = Constants.Labels.NavBarTheater
         
         // set title and icon
-        theaterNC.tabBarItem = UITabBarItem(title: "Theaters", image: UIImage(named: Constants.ImageAssets.Theater), tag: 1)
+        theaterNC.tabBarItem = UITabBarItem(title: Constants.Labels.TabBarTheater, image: UIImage(named: Constants.ImageAssets.Theater), tag: 1)
+        
         
         // get instance of MovieTableViewController from storyboard and configure for DVD
         let dvdNC = storyboard.instantiateViewControllerWithIdentifier(Constants.IDs.MovieTableNavigationController) as UINavigationController;
         let dvdVC = dvdNC.topViewController as MovieTableViewController
         dvdVC.setViewType(viewType: Constants.MovieViewType.DVD)
+        dvdVC.navigationItem.title = Constants.Labels.NavBarDVD
         
         // set title and icon
-        dvdNC.tabBarItem = UITabBarItem(title: "DVD", image: UIImage(named: Constants.ImageAssets.DVD), tag: 2)
+        dvdNC.tabBarItem = UITabBarItem(title: Constants.Labels.TabBarDVD, image: UIImage(named: Constants.ImageAssets.DVD), tag: 2)
 
         // set up tab bar controller
         let tabBarController = UITabBarController()

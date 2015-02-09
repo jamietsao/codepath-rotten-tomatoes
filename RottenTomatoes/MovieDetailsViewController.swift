@@ -29,16 +29,21 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // movie title
         movieTitle!.text = movie!.title
 
         // abridged cast
         abridgedCast!.text = movie!.getAbridgedCastForFullDisplay()
 
-        // poster image (loaded asynchronously)
-        movieImage.setImageWithURL(NSURL(string: movie!.getPosterUrlOriginalSize()))
-        
+        // poster image (first load thumbnail then load detail size)
+        //
+        // TODO: this is a suboptimal implementation as it assumes the first call will always
+        //       complete before second (most of the time it will).  The proper implementation
+        //       is to use setImageWithURLRequest
+        movieImage.setImageWithURL(NSURL(string: movie!.getPosterUrlThumbSize()))
+        movieImage.setImageWithURL(NSURL(string: movie!.getPosterUrlDetailSize()))
+
         // critic score
         let criticRating = movie!.criticsScore
         if criticRating < 0 {
