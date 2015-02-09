@@ -18,7 +18,7 @@ Time spent: ~20 hours
 
 - [ X ] Added a tab bar for Theaters and DVD.
 - [ X ] Added custom icons in tab bar (from [The Noun Project](https://thenounproject.com/))
-- [ X ] Customize the navigation bar (custom text depending on tab bar selection)
+- [ X ] Customized the navigation bar (custom text depending on tab bar selection)
 - [ X ] In detail view, first loading thumbnail size before loading detail size (original size not needed given my design of the detail view)
 - [ X ] Displaying the fresh/rotten tomato and fresh/spilt popcorn icons based on critic and audience score, respectively
 
